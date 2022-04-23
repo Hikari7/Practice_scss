@@ -1,0 +1,49 @@
+// @use "header"; //_header.scssを読み込ませる（ファイルを分割させて、元のファイルにこのように読み込ませる）
+
+@use "base/variables" as v;
+@use "pages/header";
+//_header.scss
+//フォルダが有る場合はフォルダ名も記入しなきゃいけない
+
+.button {
+  a {
+    color: red;
+    span {
+      color: blue;
+    }
+  }
+
+  //＆を使って親セレクターを参照する
+  &:hover {
+    background: #fff;
+  }
+  &.mb {
+    margin-bottom: 10px;
+  }
+}
+
+//クラス名をネストにする
+
+.post {
+  margin-bottom: 20px;
+
+  &-title {
+    //スペースは入れない
+    font-size: 2rem;
+  }
+  &-date {
+    color: #ccc;
+  }
+}
+
+//別のフォルダの変数名を書きたい時は、そのパーシャルの名前も書いてあげる
+// body {
+//   background: variables.$bg-color;
+// }
+
+
+//もしくは、パーシャルの名前を大元で変えて設定することも可能
+
+body {
+  background: v.$bg-color;
+}
